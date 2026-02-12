@@ -77,6 +77,26 @@
       });
     });
 
+    // ===== Notification Popup =====
+    var notifBtn = document.getElementById('notifBtn');
+    var notifOverlay = document.getElementById('notifOverlay');
+    var notifClose = document.getElementById('notifClose');
+    var notifPopup = document.getElementById('notifPopup');
+
+    notifBtn.addEventListener('click', function() {
+      notifOverlay.classList.add('active');
+    });
+
+    notifClose.addEventListener('click', function() {
+      notifOverlay.classList.remove('active');
+    });
+
+    notifOverlay.addEventListener('click', function(e) {
+      if (!notifPopup.contains(e.target)) {
+        notifOverlay.classList.remove('active');
+      }
+    });
+
     // ===== Smooth scroll to top when clicking Home =====
     document.querySelector('.nav-item.active').addEventListener('click', function() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
